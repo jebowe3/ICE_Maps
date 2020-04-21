@@ -1,2 +1,2 @@
 # ICE_Maps
-Graduate map project on ICE facilities and detention
+A repository for [ICE-related maps](https://jebowe3.github.io/ICE_Maps/).
