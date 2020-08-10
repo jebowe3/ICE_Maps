@@ -189,7 +189,7 @@
 
   <!-- button-dependent info window -->
   <div id="dialog" title="Deaths in ICE Custody">
-    <h4>Between March 2010 and March 2020, 95 deaths have been documented for detainees
+    <h4>Between March 2010 and July 2020, 100 deaths have been documented for detainees
       in ICE custody. For 2010 to 2018, these records were obtained from a
       <a href="https://immigrantjustice.org/sites/default/files/content-type/research-item/documents/2018-06/Code%20Red-%20detention%20deaths%20report%20June%202018.pdf" style='color: blue;' target="_blank">report</a>
       produced by the ACLU, Detention Watch Network, Human Rights Watch, and National
@@ -312,7 +312,7 @@
 
       // birth countries
       L.control.tagFilterButton({
-        data: ['Angola','Antigua-Barbuda','Armenia','Bosnia','Brazil','British Virgin Islands','Cameroon','Canada','China','Cuba','Czech Republic','Dominican Republic','Ecuador','El Salvador','France','Gabon','Guatemala','Honduras','India','Iran','Jamaica','Laos','Liberia','Mexico','Mozambique','Nicaragua','Nigeria','Panama','Poland','Russia','United Kingdom','Vietnam'],
+        data: ['Angola','Antigua-Barbuda','Armenia','Bosnia','Brazil','British Virgin Islands','Cameroon','Canada','China','Cuba','Czech Republic','Dominican Republic','Ecuador','El Salvador','France','Gabon','Guatemala','Honduras','India','Iran','Jamaica','Laos','Liberia','Mexico','Mozambique','Nicaragua','Nigeria','Panama','Poland','Russia','South Korea','United Kingdom','Vietnam'],
         filterOnEveryClick: true,
         icon: '<i class="fas fa-home" style="font-size:18px; padding-top: 6px;"></i>',
       }).addTo(map);
@@ -326,7 +326,7 @@
 
       // facilities
       L.control.tagFilterButton({
-        data: ['ADELANTO CORRECTIONAL FACILITY', 'ADELANTO ICE PROCESSING CENTER', 'ALBANY COUNTY JAIL', 'ATLANTA CITY DETENTION CENTER', 'BAKER COUNTY DETENTION CENTER', 'BROADVIEW SERVICE STAGING', 'BROOKS COUNTY DETENTION CENTER', 'BUTNER FEDERAL CORRECTIONAL INSTITUTE', 'CIBOLA COUNTY CORRECTIONAL CENTER', 'CLINTON COUNTY CORRECTIONAL FACILITY', 'COLUMBIA CARE CENTER', 'DENVER CONTRACT DETENTION FACILITY', 'EL PASO COUNTY CRIMINAL JUSTICE CENTER', 'ELIZABETH CONTRACT DETENTION FACILITY', 'ELOY FEDERAL CONTRACT FACILITY', 'ESSEX COUNTY CORRECTIONAL FACILITY', 'FLORENCE SERVICE PROCESSING CENTER', 'GUAYNABO METROPOLITAN DETENTION CENTER', 'HALL COUNTY DEPARTMENT OF CORRECTIONS', 'HOUSTON CONTRACT DETENTION FACILITY', 'HUDSON COUNTY CORRECTIONAL FACILITY', 'IAH SECURE ADULT DETENTION CENTER', 'IMMIGRATION CENTERS OF AMERICA FARMVILLE', 'JENA/LA SALLE DETENTION FACILITY', 'JOE CORLEY DETENTION FACILITY', 'KARNES COUNTY RESIDENTIAL CENTER', 'KROME DETENTION CENTER', 'KROME NORTH SERVICE PROCESSING CENTER', 'LA PAZ COUNTY ADULT DETENTION FACILITY', 'LAS VEGAS HOLD ROOM', 'MCHENRY COUNTY ADULT CORRECTIONAL FACILITY', 'MIRA LOMA DETENTION CENTER', 'MONROE COUNTY DETENTION CENTER', 'NORTH GEORGIA DETENTION CENTER', 'NORTHEAST OHIO CORRECTIONAL CENTER', 'OAKDALE FEDERAL DETENTION CENTER', 'ORANGE COUNTY JAIL', 'ORLEANS PARISH PRISON', 'OTAY MESA DETENTION CENTER', 'OTERO COUNTY PROCESSING CENTER', 'PORT ISABEL DETENTION CENTER', 'PRAIRIELAND DETENTION CENTER', 'RICHWOOD CORRECTIONAL CENTER', 'RIO GRANDE DETENTION CENTER', 'ROLLING PLAINS DETENTION CENTER', 'SOUTH TEXAS DETENTION COMPLEX', 'STEWART DETENTION CENTER', 'TACOMA ICE PROCESSING CENTER (NORTHWEST DET CTR)', 'THEO LACY FACILITY', 'UTAH COUNTY JAIL', 'WEBER COUNTY JAIL', 'WORCESTER COUNTY DETENTION CENTER', 'YORK COUNTY PRISON'],
+        data: ['ADELANTO CORRECTIONAL FACILITY', 'ADELANTO ICE PROCESSING CENTER', 'ALBANY COUNTY JAIL', 'ATLANTA CITY DETENTION CENTER', 'BAKER COUNTY DETENTION CENTER', 'BROADVIEW SERVICE STAGING', 'BROOKS COUNTY DETENTION CENTER', 'BUTNER FEDERAL CORRECTIONAL INSTITUTE', 'CATAHOULA CORRECTIONAL CENTER', 'CIBOLA COUNTY CORRECTIONAL CENTER', 'CLINTON COUNTY CORRECTIONAL FACILITY', 'COLUMBIA CARE CENTER', 'DENVER CONTRACT DETENTION FACILITY', 'EL PASO COUNTY CRIMINAL JUSTICE CENTER', 'ELIZABETH CONTRACT DETENTION FACILITY', 'ELOY FEDERAL CONTRACT FACILITY', 'ESSEX COUNTY CORRECTIONAL FACILITY', 'FLORENCE SERVICE PROCESSING CENTER', 'GLADES COUNTY DETENTION CENTER', 'GUAYNABO METROPOLITAN DETENTION CENTER', 'HALL COUNTY DEPARTMENT OF CORRECTIONS', 'HOUSTON CONTRACT DETENTION FACILITY', 'HUDSON COUNTY CORRECTIONAL FACILITY', 'IAH SECURE ADULT DETENTION CENTER', 'IMMIGRATION CENTERS OF AMERICA FARMVILLE', 'JENA/LA SALLE DETENTION FACILITY', 'JOE CORLEY DETENTION FACILITY', 'KARNES COUNTY RESIDENTIAL CENTER', 'KROME DETENTION CENTER', 'KROME NORTH SERVICE PROCESSING CENTER', 'LA PAZ COUNTY ADULT DETENTION FACILITY', 'LAS VEGAS HOLD ROOM', 'MCHENRY COUNTY ADULT CORRECTIONAL FACILITY', 'MESA VERDE ICE PROCESSING CENTER', 'MIRA LOMA DETENTION CENTER', 'MONROE COUNTY DETENTION CENTER', 'NORTH GEORGIA DETENTION CENTER', 'NORTHEAST OHIO CORRECTIONAL CENTER', 'OAKDALE FEDERAL DETENTION CENTER', 'ORANGE COUNTY JAIL', 'ORLEANS PARISH PRISON', 'OTAY MESA DETENTION CENTER', 'OTERO COUNTY PROCESSING CENTER', 'PORT ISABEL DETENTION CENTER', 'PRAIRIELAND DETENTION CENTER', 'RICHWOOD CORRECTIONAL CENTER', 'RIO GRANDE DETENTION CENTER', 'ROLLING PLAINS DETENTION CENTER', 'SOUTH TEXAS DETENTION COMPLEX', 'STEWART DETENTION CENTER', 'TACOMA ICE PROCESSING CENTER (NORTHWEST DET CTR)', 'THEO LACY FACILITY', 'UTAH COUNTY JAIL', 'WEBER COUNTY JAIL', 'WORCESTER COUNTY DETENTION CENTER', 'YORK COUNTY PRISON'],
         filterOnEveryClick: true,
         icon: '<i class="fas fa-kaaba" style="font-size:18px; padding-top: 6px;"></i>',
       }).addTo(map);
@@ -390,67 +390,7 @@
       // call retrieveIconInfo function
       retrieveIconInfo(deaths);
     }
-/*
-    // define createIcons function
-    function createIcons(timestamps, data) {
 
-      // define amenities icons
-      amenities = L.geoJson(data, {
-
-        pointToLayer: function(feature, ll) {
-
-          //define an empty array into which you can add tags for the filter buttons
-          var tags = [];
-
-          //push properties into the tags array for later referencing by the filter buttons
-          tags.push(feature.properties.Type);
-
-          return L.marker(ll, {
-            tags: tags,
-            icon: L.ExtraMarkers.icon({
-              icon: getIcon(feature.properties.Type),
-              prefix: 'fa',
-              markerColor: getColor(feature.properties.Type),
-              iconColor: 'white'
-            })
-          })
-
-        }
-
-      }).addTo(map);
-
-      // amenity type
-      L.control.tagFilterButton({
-        data: ["Automotive", "Beauty Parlors", "Drug Stores", "Garages", "Hotels", "Restaurants", "Service Stations", "Tailors", "Taverns", "Tourist Homes"],
-        filterOnEveryClick: true,
-        icon: '<i class="fas fa-filter" style="font-size:18px; padding-top: 6px;"></i>',
-      }).addTo(map);
-
-      jQuery('.easy-button-button').click(function() {
-        target = jQuery('.easy-button-button').not(this);
-        target.parent().find('.tag-filter-tags-container').css({
-          'display': 'none',
-        });
-      });
-
-      //disable dragging of the map after clicking a filter button
-      jQuery('.easy-button-button').click(function() {
-        map.dragging.disable();
-      });
-
-      //enable dragging of the map after clicking on the map
-      map.on('click', function() {
-        map.dragging.enable();
-      });
-
-      // call updateIcons function
-      updateIcons(timestamps[0]);
-
-      // call retrieveIconInfo function
-      retrieveIconInfo(amenities);
-
-    } // end createIcons function
-*/
     // define updateIcons function
     function updateIcons(timestamp) {
 
@@ -534,7 +474,7 @@
       deaths.eachLayer(function(layer) {
         var props = layer.feature.properties;
         layer.bindPopup("<h3 style=font-size:14px>" + props.Name + "<br>Age: " + props.Age + ", Sex: " + props.Gender + "<br>Homeland: " + props.Birth_Country + "</h3>" +
-          "<h4 style=font-size:12px>Died on " + props.Death_Date + "<br>in the custody of ICE at: " +
+          "<h4 style=font-size:12px>Died on " + props.Death_Date + "<br>in the custody of ICE, while detained at: " +
           "<br>" + props.Facility + "</h4>" // add website
         );
         layer.on('mouseover', function(e) {
